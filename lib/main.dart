@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: colorScheme,
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const MyRouter(),
     );
   }
 }
