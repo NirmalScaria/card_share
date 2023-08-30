@@ -14,29 +14,35 @@ class _MyRouterState extends State<MyRouter> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: const HomeScreen(),
-        bottomNavigationBar: BottomNavigationBar(
-            selectedItemColor: Theme.of(context).colorScheme.primary,
-            unselectedItemColor: Theme.of(context).colorScheme.secondary,
-            showUnselectedLabels: true,
-            items: [
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "lib/assets/icons/home.svg",
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+          ),
+          child: BottomNavigationBar(
+              selectedItemColor: Theme.of(context).colorScheme.primary,
+              unselectedItemColor: Theme.of(context).colorScheme.secondary,
+              showUnselectedLabels: true,
+              items: [
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    "lib/assets/icons/home.svg",
+                  ),
+                  label: "Home",
                 ),
-                label: "Home",
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset("lib/assets/icons/search_card.svg"),
-                label: "Search",
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset("lib/assets/icons/manage_card.svg"),
-                label: "Manage",
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset("lib/assets/icons/profile.svg"),
-                label: "Profile",
-              ),
-            ]));
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset("lib/assets/icons/search_card.svg"),
+                  label: "Search",
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset("lib/assets/icons/manage_card.svg"),
+                  label: "Manage",
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset("lib/assets/icons/profile.svg"),
+                  label: "Profile",
+                ),
+              ]),
+        ));
   }
 }
