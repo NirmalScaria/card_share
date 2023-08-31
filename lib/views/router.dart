@@ -10,16 +10,30 @@ class MyRouter extends StatefulWidget {
 }
 
 class _MyRouterState extends State<MyRouter> {
+  List<Widget> screens = [
+    const HomeScreen(),
+    const SearchScreen(),
+  ];
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: const HomeScreen(),
+        body: screens[selectedIndex],
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
           ),
           child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              currentIndex: selectedIndex,
+              onTap: (value) {
+                if (value < screens.length) {
+                  setState(() {
+                    selectedIndex = value;
+                  });
+                }
+              },
               selectedItemColor: Theme.of(context).colorScheme.primary,
               unselectedItemColor: Theme.of(context).colorScheme.secondary,
               showUnselectedLabels: true,
